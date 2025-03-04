@@ -31,7 +31,7 @@ public class CustomerSecurityRepository {
 	    PlatformTransactionManager transactionManager;
 	    
 	    public UserDetailsSerect findByUserName(String userName) {
-	    	System.out.println("find userby name.......");
+//	    	System.out.println("find userby name.......");
 	    	System.out.println(userName);
 	    	String sql = "SELECT userId, userName,password FROM users WHERE userName = :userName";
 	    	String roleSql = "SELECT r.roleId, r.roleName FROM roles r INNER JOIN userroles ur ON r.roleId = ur.roleId WHERE ur.userId = :userId";
@@ -51,7 +51,7 @@ public class CustomerSecurityRepository {
 	    param.addValue("userId", user.getUserId());
 	    List<Role> roles = jdbctemplate.query(roleSql, param, new BeanPropertyRowMapper<>(Role.class));
 	    user.setRoles(roles);
-	    System.out.println("userid "+user.getUserId());
+//	    System.out.println("userid "+user.getUserId());
 		return user;
 		
 	    }

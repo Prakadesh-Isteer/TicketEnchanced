@@ -98,9 +98,11 @@ public class TicketManagementController {
       @PreAuthorize("@requestPermissionService.hasPermission()")
       @GetMapping("getAllTickets")
       public List<?> getAlltickets() { 
+    	  System.out.println("in this controller all the tickets will be shown");
     	  logging.info("Getting all ticket endpoint hitted");
 	        return service.getAllTickets();
       }
+      
       
 	    
 	
